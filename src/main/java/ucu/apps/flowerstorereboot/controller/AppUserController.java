@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import ucu.apps.flowerstorereboot.service.AppUserService;
 import ucu.apps.flowerstorereboot.user.AppUser;
 
-
 @RestController
-@RequestMapping ("/api/v1/users")
+@RequestMapping("/api/v1/users")
 public class AppUserController {
-    private AppUserService userService;
+
+    private final AppUserService userService;
 
     @Autowired
     public AppUserController(AppUserService userService) {
@@ -31,17 +31,14 @@ public class AppUserController {
     }
 
     @PostMapping
-    public AppUser addUser(@RequestBody AppUser user){
+    public AppUser addUser(@RequestBody AppUser user) {
         return userService.addUser(user);
     }
 
     @GetMapping("/email")
-    public ResponseEntity<AppUser> getUserByEmail(@RequestParam String email){
-        AppUser userByEmail = userService.getUserByEmail(email);
-
-        if (userByEmail != null) {
-            return ResponseEntity.ok(userByEmail);
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<AppUser> getUserByEmail(@RequestParam String email) {
+        return userService.getUserByEmail(email)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
-} 
+}
