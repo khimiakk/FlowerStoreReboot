@@ -1,0 +1,76 @@
+###
+GET http://localhost:8080/api/v1/flowers
+###
+GET http://localhost:8080/api/v1/users
+###
+GET http://localhost:8080/api/v1/users/email?email=hihi@gmail.com
+
+### Add flower locally
+POST http://localhost:8080/api/v1/flowers
+Content-Type: application/json
+
+{
+  "name": "Cactus",
+  "color": "Green",
+  "price": 19.5,
+  "available": true
+}
+
+### Add users locally
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "ucu@gmail.com",
+  "dob" : "1987-03-02"
+}
+
+
+### HEROKU: Get all flowers
+GET https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/flowers
+
+###
+GET https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/users
+
+###
+GET https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/users/email?email=hihi@gmail.com
+
+###
+POST https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/flowers
+Content-Type: application/json
+
+{
+  "name": "Cactus",
+  "color": "Green",
+  "price": 19.5,
+  "available": true
+}
+
+###
+POST https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "ucu@gmail.com",
+  "dob" : "1987-03-02"
+}
+
+###
+POST https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "victoriao@gmail.com",
+  "dob" : "2006-09-04",
+  "status" : "recevied"
+}
+
+###
+POST https://fierce-bastion-81736-0b7589e33767.herokuapp.com/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "user@gmail.com",
+  "dob" : "2022-05-09",
+  "status" : "sended"
+}
